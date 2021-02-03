@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        玄八的记录挡案中心
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            给自己也整一个 live2D 看板娘
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <!--
+---
+title: postName #文章页面上的显示名称，一般是中文
+date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改
+categories: 默认分类 #分类
+tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格
+description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面
+---
+-->
+
+
+
+
+<!-- wp:heading {"level":4} -->
+<h4>我的是wordpress为基的博客，如果跟我一样可以直接添加喔！</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><span class="has-inline-color has-vivid-cyan-blue-color"><strong>第一步</strong></span>：</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>需要修改的文件:wp-content/themes/自己的主题/footer.php</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>在 &lt;/body&gt;之前添加如下代码</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li></li></ul>
+<!-- /wp:list -->
+
+<!-- wp:group -->
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:code -->
+<pre class="wp-block-code"><code>&lt;!-- 看板娘 -->
+&lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu.css"/>
+&lt;script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js">&lt;/script>
+&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 
+-->
+&lt;div>
+&lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/flat-ui.min.css"/>
+&lt;/div>
+&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 -->
+&lt;div class="waifu" id="waifu">
+&lt;div class="waifu-tips" style="opacity: 1;">&lt;/div>
+&lt;canvas id="live2d" width="280" height="250" class="live2d">&lt;/canvas>
+&lt;div class="waifu-tool">
+&lt;span class="fui-home">&lt;/span>
+&lt;span class="fui-chat">&lt;/span>
+&lt;span class="fui-eye">&lt;/span>
+&lt;span class="fui-user">&lt;/span>
+&lt;span class="fui-photo">&lt;/span>
+&lt;span class="fui-info-circle">&lt;/span>
+&lt;span class="fui-cross">&lt;/span>
+&lt;/div>
+&lt;/div>
+&lt;script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/live2d.min.js">&lt;/script>
+&lt;script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu-tips.js">&lt;/script>
+</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>ps:<span class="has-inline-color has-vivid-red-color">注意：有些博客主题会打乱整个UI   自己找到 &lt;span class="fui-eye... 等 自己做个css替换就好  如果没事 可直接套用</span> <span class="has-inline-color has-vivid-red-color">具体css在标记好了 在&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 --&gt;下面的css就是</span>  我可是一个个尝试出来的 没有功劳没有苦劳 只剩下疲劳~</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph -->
+<p><span class="has-inline-color has-vivid-cyan-blue-color"><strong>第二步</strong>：</span></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>需要修改的文件:wp-content/themes/自己的主题/header.php</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>在 &lt;/head&gt;前加入如下代码</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>&lt;head>
+    &lt;!-- 看板娘 -->
+    &lt;div class="site-content-contain">
+        &lt;div id="content" class="site-content">
+            
+                &lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/waifu.css"/>
+    &lt;script src="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/jquery.min.js">&lt;/script>
+&lt;!-- 看板娘 -->
+
+&lt;/head></code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong><span class="has-inline-color has-vivid-red-color">注意：代码框如果复制不全 可从上面的文字往下拉 拉倒记事本再一个个删除 这个代码框后期我有时间了会整个改.</span></strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>休息区：</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link" href="http://sjiaw.com/jing.html" target="_blank" rel="noreferrer noopener">点击进入休息区</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph {"align":"right"} -->
+<p class="has-text-align-right">2020年11月27日</p>
+<!-- /wp:paragraph -->
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2021 <a class="flink" target="_blank" rel="noopener" href="https://blog.sjiaw.com">玄八的记录挡案中心</a>· 休息区 <a class="flink" target="_blank" rel="noopener" href="https://www.sjiaw.com/jing.html">点击</a>.
+ <br>
+        Made with <i class="fa fa-heart throb"
+           style="color:#d43f57"></i> by <span class="author"
+              itemprop="copyrightHolder">www.sjiaw.com</span>.
+
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="CaneRmRhoxxOMH1FxGx15ehN-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="B8lWCVehKozhxmcuCK3bngu7">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>
