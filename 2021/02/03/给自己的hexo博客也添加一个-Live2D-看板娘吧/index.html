@@ -31,87 +31,85 @@
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 <body id="bodyx">
-    <div class="hd logodiv">
-    <img src="https://count.getloli.com/get/@xuanba?theme=rule34" alt=":xuanba" />
-    <p class="logot"><span class="logo_1">&lt;</span><span class="logo_2">/</span><span class="logo_3">#</span> 玄八的记录挡案中心 <span class="logo_3">#</span><span class="logo_2">/</span><span class="logo_1">&gt;</span></p>
-</div>
-<div class="hd">
-    <ol class="breadcrumb">
-        
-            <li><a class="ba" href="/project">作品</a></li>
-        
-            <li><a class="ba" href="/domain">域名</a></li>
-        
-            <li><a class="ba" href="/links">友联</a></li>
-        
-            <li><a class="ba" href="/about">关于</a></li>
-        
-            <li><a class="ba" target="_blank" rel="noopener" href="https://github.com/lonelyfinally">Github</a></li>
-        
-    </ol>
-    <hr class="breadcrumbhr">
-</div>
-<div class="hd">
-    
-    
-        
-        
-            <div class="titlex">
-                <p><span class="jing">#</span>
-                    2021
-                </p>
-            </div>
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            给自己的hexo博客也添加一个 Live2D 看板娘吧
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h2>前言</h2>
+博客自从转到 hexo后，由于忙于其他事情，都没时间去打理。废话不多说我们开始简单的操作。
+只需要把从Wordpress的博客的代码 拷贝过来就完事 就两步
+
+<h2>用到的技术</h2>
+键盘几个按键，和windows自带强大的记事本
+第一步：
+把以下代码添加到 找到你hexo主题的 ...先用我的目录做演示吧   找到 themes\geek\layout\_partial\footer.ejs 这个文件 (没错 还是footer) 开头加入
+
+<!-- wp:group -->
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:code -->
+<pre class="wp-block-code"><code>&lt;!-- 看板娘 -->
+&lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/xuanbazhuanyongya.css"/>
+&lt;script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js">&lt;/script>
+&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 
+-->
+&lt;div>
+&lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/flat-ui.min.css"/>
+&lt;/div>
+&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 -->
+&lt;div class="waifu" id="waifu">
+&lt;div class="waifu-tips" style="opacity: 1;">&lt;/div>
+&lt;canvas id="live2d" width="280" height="250" class="live2d">&lt;/canvas>
+&lt;div class="waifu-tool">
+&lt;span class="fui-home">&lt;/span>
+&lt;span class="fui-chat">&lt;/span>
+&lt;span class="fui-eye">&lt;/span>
+&lt;span class="fui-user">&lt;/span>
+&lt;span class="fui-photo">&lt;/span>
+&lt;span class="fui-info-circle">&lt;/span>
+&lt;span class="fui-cross">&lt;/span>
+&lt;/div>
+&lt;/div>
+&lt;script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/live2d.min.js">&lt;/script>
+&lt;script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu-tips.js">&lt;/script>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;initModel()&lt;/script&gt; 
+</code></pre>
+<p></code></pre></p>
+<!-- /wp:code -->
+
+
+<p>第二步：找到  themes\geek\layout_partial\head.ejs 这个文件<br>在 </head>之前加入</p>
+<!-- wp:code -->
+<pre class="wp-block-code"><code>&lt;head>
+    &lt;!-- 看板娘 -->
+    &lt;div class="site-content-contain">
+        &lt;div id="content" class="site-content">
             
-        
-        <a class="flink" href="/2021/02/03/%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84hexo%E5%8D%9A%E5%AE%A2%E4%B9%9F%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-Live2D-%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%90%A7/">
-            <div class="list">
-                <div class="postname">
-                    给自己的hexo博客也添加一个 Live2D 看板娘吧
-                </div>
-                <div class="posttime">
-                    二月 3日
-                </div>
-            </div>
-        </a>
+                &lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/waifu.css"/>
+    &lt;script src="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/jquery.min.js">&lt;/script>
+&lt;!-- 看板娘 -->
+
+&lt;/head></code></pre>
+<!-- /wp:code -->
+
+
+<h2>工具</h2>
+<li>记事本</li>
+<li>键盘</>
+
+<h2>技术</h2>
+<li>USB热插拔外接键盘硬盘管理视图化的快捷管理技术</li>
+
+
+    </div>
+
     
-        
-        
-        <a class="flink" href="/2021/02/03/%E6%90%AC%E8%BF%81%E5%88%B0Hexo/">
-            <div class="list">
-                <div class="postname">
-                    搬迁到Hexo
-                </div>
-                <div class="posttime">
-                    二月 3日
-                </div>
-            </div>
-        </a>
-    
-        
-        
-        <a class="flink" href="/2021/02/03/%E7%BB%99%E8%87%AA%E5%B7%B1%E4%B9%9F%E6%95%B4%E4%B8%80%E4%B8%AA-live2D-%E7%9C%8B%E6%9D%BF%E5%A8%98/">
-            <div class="list">
-                <div class="postname">
-                    给自己也整一个 live2D 看板娘
-                </div>
-                <div class="posttime">
-                    二月 3日
-                </div>
-            </div>
-        </a>
-    
-        
-        
-        <a class="flink" href="/2021/01/28/hello-world/">
-            <div class="list">
-                <div class="postname">
-                    Hello World
-                </div>
-                <div class="posttime">
-                    一月 28日
-                </div>
-            </div>
-        </a>
+        <hr class="fhr">
+        <div id="vcomments"></div>
     
 </div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/xuanbazhuanyongya.css">
