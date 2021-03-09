@@ -9,7 +9,7 @@
 	
 	
 	<title>
-          玄八的记录挡案中心
+       给R6300v2的刷DD刻梅林刷金漆的挥袖过程!   玄八的记录挡案中心
 		 
     </title>
     
@@ -35,50 +35,52 @@
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 <body id="bodyx">
-    <head>
-    <div class="hd logodiv">
-    <img src="https://count.getloli.com/get/@xuanba?theme=rule34" alt=":xuanba" />
-    <p class="logot"><span class="logo_1">&lt;</span><span class="logo_2">/</span><span class="logo_3">#</span> 玄八的记录挡案中心 <span class="logo_3">#</span><span class="logo_2">/</span><span class="logo_1">&gt;</span></p>
-</div>
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            给R6300v2的刷DD刻梅林刷金漆的挥袖过程!
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h2>前言</h2>
+自从前几年入手了R6300V2后 刷了一次梅林..感觉速度不如以前还有一些卡顿。我就通过DD刷回了
+ V1.0.0.16_1.0.8PRRU 这个版本 目前一直用的挺不错的。最近在网上冲浪看到大佬出了新的固件 想来试试 特此记录 
 
-<div class="hd">
-    <ol class="breadcrumb">
-        
-            <li><a class="ba" href="/project">作品</a></li>
-        
-            <li><a class="ba" href="/domain">域名</a></li>
-        
-            <li><a class="ba" href="/links">友联</a></li>
-        
-            <li><a class="ba" href="/guanyu">关于</a></li>
-        
-            <li><a class="ba" target="_blank" rel="noopener" href="https://github.com/lonelyfinally">Github</a></li>
-        
-    </ol>
-    <hr class="breadcrumbhr">
-</div>
-<div class="hd">
+<h2>工具和环境</h2>
+<li>谷歌浏览器</li>
+<li>WIN10</>
+
+<h2>开始正题吧</h2>
+我目前的固件和mac
+![(2021年2月16日14:10:46)](/1.png)
+首要步骤:把WAN口拔掉。 网线直连LAN口 2或者 3  
+
+<p>第一步：恢复出厂缺省设置<br>【高级-管理-备份设置-恢复出厂缺省设置】<br><img src="/2.png" alt="(2021年2月16日14:19:51)"><br>等待加载完毕 自动跳转 重置后的路由器默认账号密码是 admim password<br><img src="/3.png" alt="(2021年2月16日14:21:15)"><br>选 不需要，我想自己配置因特网连接。 下一步 确定</p>
+<p>第二步：刷入dd<br><img src="/4.png" alt="(2021年2月16日14:24:49)"><br>点击上传<br><img src="/5.png" alt="(2021年2月16日14:25:55)"><br>等它自动刷入后自动重启路由器 期间会重启几次 切记不可断电 咱们需要的是耐心！</p>
+<h3>告诉大家一个悲伤的故事 我变砖头 不过好事是 可以有一小会ping通 这就是我的机会</h3>
+现在我手头上有 nmrpflash.exe
+把文件拷到c盘 用管理员模式打开cmd 【cd c:\】 去到 c盘根目录运行我现在仅有的几个固件文件 只能一个个尝试了
+官方固件：
+R6300v2_V1.0.0.8_1.0.4PRRU.chk
+R6300v2-V1.0.0.16_1.0.8PRRU.chk
+R6300v2-V1.0.4.8_10.0.77.chk
+过渡：
+dd-wrt.K3_R6300V2.chk
+factory-to-dd-wrt.chk
+dd-wrt.K3_R6300V2CH.chk
+
+
+<p>nmrpflash.exe -i net0 -a 192.168.1.1 -f C:\R6300v2_V1.0.0.8_1.0.4PRRU.chk<br>nat0 是几好网卡<br>nmrpflash.exe -L可以查看自己的网卡 选择对应连接路由器的网卡号</p>
+<p><img src="/6.png" alt="(2021年2月16日14:25:55)"><br>上图是等待ping通立马上传<br><img src="/7.png" alt="(2021年2月16日14:25:55)"><br>上面几个都是没有上传成功的 我用第一次 等待超时 让路由器 打通ping 不让R6300V2反复重启<br><img src="/8.png" alt="(2021年2月16日15:47:10)"><br>上传完dd-wrt.K3_R6300V2CH.chk  提示让你重启路由器<br>我还是打算再试试DD找到以前带 CH的dd<br>事实证明 是不行的<br>最后得出 R6300v2-V1.0.0.16_1.0.8PRRU.chk 刷回官方的固件再继续<br>……<br><img src="/9.png" alt="(2021年2月16日15:47:10)"><br>成功救回 咱们需要的是耐心！ 继续刷DD  之前我那个DD是在张大妈那边下载的factory-to-dd-wrt.chk 那边的DD不适合我的R6300V2<br>我的是蓝边的 这次用K大的 dd-wrt.K3_R6300V2.chk   dd-wrt.K3_R6300V2CH.chk 提示固件不对  结果是 一样反复重启<br>斯。。。<br> …….<br><img src="/10.png" alt="(2021年2月17日23:48:50)"><br> 结果就是这么个回事 我愧对这个标题。 虽然用这个nmrpflash.exe刷不砖<br> 后面我也尝试 TFTP 反复刷各个DD-wrt 还是非官方固件刷进去 反复重启<br> 【这里附上TFTP：<a target="_blank" rel="noopener" href="http://club.ntgrchina.cn/Knowledgebase/Document_detail.aspx?Did=873">http://club.ntgrchina.cn/Knowledgebase/Document_detail.aspx?Did=873</a> 方法】</p>
+<p> 根据这个帖子的限制我也重新检查了下 也是对的<br>【<a target="_blank" rel="noopener" href="https://koolshare.cn/thread-59854-1-1.html%E3%80%91">https://koolshare.cn/thread-59854-1-1.html】</a><br>PRRU(貌似是中国专用版 )和刷到官方的最新国际版 刷DD-wrt 一样反复重启 迫于时间关系不继续研究了 也许我该换个更高级路由器继续玩耍<br>如果哪位大佬路过有解决方案 我会谨慎考虑继续尝试 ！</p>
+</li>
+    </div>
+
     
-    
-        
-        
-            <div class="titlex">
-                <p><span class="jing">#</span>
-                    2021
-                </p>
-            </div>
-            
-        
-        <a class="flink" href="/2021/02/03/%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84hexo%E5%8D%9A%E5%AE%A2%E4%B9%9F%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-Live2D-%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%90%A7/">
-            <div class="list">
-                <div class="postname">
-                    给自己的hexo博客也添加一个 Live2D 看板娘吧
-                </div>
-                <div class="posttime">
-                    二月 3日
-                </div>
-            </div>
-        </a>
+        <hr class="fhr">
+        <div id="vcomments"></div>
     
 </div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/xuanbazhuanyongya.css">
