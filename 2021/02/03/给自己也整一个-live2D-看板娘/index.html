@@ -32,7 +32,8 @@
 <!-- 看板娘 -->
 
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body id="bodyx">
     <div class="hd posts">
@@ -63,41 +64,53 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
 <h4>我的是wordpress为基的博客，如果跟我一样可以直接添加喔！</h4>
 
 
-<p><span class="has-inline-color has-vivid-cyan-blue-color"><strong>第一步</strong></span>：</p>
+<h2>第一步：</h2>
 
 
 
 <p>需要修改的文件:wp-content/themes/自己的主题/footer.php</p>
+<p>在 之前添加如下代码</p>
+<pre><code>&lt;!-- 看板娘 --&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu.css&quot;/&gt;
+&lt;script src=&quot;https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 
+--&gt;
+&lt;div&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/flat-ui.min.css&quot;/&gt;
+&lt;/div&gt;
+&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 --&gt;
+&lt;div class=&quot;waifu&quot; id=&quot;waifu&quot;&gt;
+&lt;div class=&quot;waifu-tips&quot; style=&quot;opacity: 1;&quot;&gt;&lt;/div&gt;
+&lt;canvas id=&quot;live2d&quot; width=&quot;280&quot; height=&quot;250&quot; class=&quot;live2d&quot;&gt;&lt;/canvas&gt;
+&lt;div class=&quot;waifu-tool&quot;&gt;
+&lt;span class=&quot;fui-home&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-chat&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-eye&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-user&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-photo&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-info-circle&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-cross&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/live2d.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu-tips.js&quot;&gt;&lt;/script&gt;
 
-
-
-<p>在 &lt;/body&gt;之前添加如下代码</p>
-
-
-
-<figure class="highlight plain"><figcaption><span>[title] [lang:language] [url] [link text]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 看板娘 --&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;LonelyFinally&#x2F;cdn&#x2F;live2d0&#x2F;waifu.css&quot;&#x2F;&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;jquery&#x2F;3.2.1&#x2F;jquery.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 </span><br><span class="line">--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;LonelyFinally&#x2F;sjiaw@1.0&#x2F;flat-ui.min.css&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 --&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;waifu&quot; id&#x3D;&quot;waifu&quot;&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;waifu-tips&quot; style&#x3D;&quot;opacity: 1;&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;canvas id&#x3D;&quot;live2d&quot; width&#x3D;&quot;280&quot; height&#x3D;&quot;250&quot; class&#x3D;&quot;live2d&quot;&gt;&lt;&#x2F;canvas&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;waifu-tool&quot;&gt;</span><br><span class="line">&lt;span class&#x3D;&quot;fui-home&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;span class&#x3D;&quot;fui-chat&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;span class&#x3D;&quot;fui-eye&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;span class&#x3D;&quot;fui-user&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;span class&#x3D;&quot;fui-photo&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;span class&#x3D;&quot;fui-info-circle&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;span class&#x3D;&quot;fui-cross&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;LonelyFinally&#x2F;cdn&#x2F;live2d0&#x2F;live2d.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;LonelyFinally&#x2F;cdn&#x2F;live2d0&#x2F;waifu-tips.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;initModel()&lt;&#x2F;script&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<p>ps:<span class="has-inline-color has-vivid-red-color">注意：有些博客主题会打乱整个UI   自己找到 &lt;span class="fui-eye... 等 自己做个css替换就好  如果没事 可直接套用</span> <span class="has-inline-color has-vivid-red-color">具体css在标记好了 在&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 --&gt;下面的css就是</span>  我可是一个个尝试出来的 没有功劳没有苦劳 只剩下疲劳~</p>
-
-<!-- /wp:group -->
-
-
-<p><span class="has-inline-color has-vivid-cyan-blue-color"><strong>第二步</strong>：</span></p>
-
-
+&lt;script type=&quot;text/javascript&quot;&gt;initModel()&lt;/script&gt; 
+</code></pre>
+<p>ps:注意：有些博客主题会打乱整个UI 自己找到 &lt;span class=”fui-eye… 等 自己做个css替换就好 如果没事 可直接套用 具体css在标记好了 在<!--此也是看板娘的一部分不过 ui会强行改变 待改进 -->下面的css就是 我可是一个个尝试出来的 没有功劳没有苦劳 只剩下疲劳~</p>
+<h2>第二步：</h2>
 
 <p>需要修改的文件:wp-content/themes/自己的主题/header.php</p>
-
-
-
-<p>在 &lt;/head&gt;前加入如下代码</p>
-
-<figure class="highlight plain"><figcaption><span>[title] [lang:language] [url] [link text]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    &lt;!-- 看板娘 --&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;site-content-contain&quot;&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;content&quot; class&#x3D;&quot;site-content&quot;&gt;</span><br><span class="line">            </span><br><span class="line">                &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;LonelyFinally&#x2F;sjiaw@1.0&#x2F;waifu.css&quot;&#x2F;&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;LonelyFinally&#x2F;sjiaw@1.0&#x2F;jquery.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;!-- 看板娘 --&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong><span class="has-inline-color has-vivid-red-color">注意：代码框如果复制不全 可从上面的文字往下拉 拉倒记事本再一个个删除 这个代码框后期我有时间了会整个改.</span></strong></p>
-
-
-
+<p>在 前加入如下代码</p>
+<pre><code>    &lt;!-- 看板娘 --&gt;
+    &lt;div class=&quot;site-content-contain&quot;&gt;
+        &lt;div id=&quot;content&quot; class=&quot;site-content&quot;&gt;
+            
+                &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/waifu.css&quot;/&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;!-- 看板娘 --&gt;
+</code></pre>
+<p><span class="line_m">注意：代码框如果复制不全 可从上面的文字往下拉 拉倒记事本再一个个删除 这个代码框后期我有时间了会整个改.</span><br>右上角复制</p>
 <p>休息区：</p>
 
 
@@ -120,16 +133,32 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
 	
 </div>
 
+
+
+
+
+<!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
 <!-- 代码语言 -->
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
 <!-- 代码块复制 -->
+
 <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+
+
 <!-- 代码块收缩 -->
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
 <!-- 代码块折行 -->
-<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/xuanbazhuanyongya.css">
 <!-- 看板娘 -->
@@ -155,16 +184,7 @@ description: 附加一段文章摘要，字数最好在140字以内，会出现�
     </div>
     <script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/live2d.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu-tips.js"></script>
-<!-- 代码块高亮 -->
-<script type="text/javascript">
-var hljs_labels = {
-    left: "{{__('hljs.left')}}",
-    right: "{{__('hljs.right')}}",
-    copy: "{{__('hljs.copy')}}"
-}
-</script>
 
-<script src="https://cdn.jsdelivr.net/gh/Jamling/hexo-theme-nova@0.1.2/source/js/hljs.js"></script> <!-- 代码块高亮 -->
    
     <script type="text/javascript">initModel()</script>
     

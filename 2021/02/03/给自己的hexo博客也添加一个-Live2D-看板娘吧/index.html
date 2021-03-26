@@ -32,7 +32,8 @@
 <!-- 看板娘 -->
 
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body id="bodyx">
     <div class="hd posts">
@@ -55,54 +56,46 @@
 第一步：
 把以下代码添加到 找到你hexo主题的 ...先用我的目录做演示吧   找到 themes\geek\layout\_partial\footer.ejs 这个文件 (没错 还是footer) 开头加入
 
-<!-- wp:group -->
-<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!-- 看板娘 -->
-&lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/xuanbazhuanyongya.css"/>
-&lt;script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js">&lt;/script>
+
+<pre><code>&lt;!-- 看板娘 --&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/xuanbazhuanyongya.css&quot;/&gt;
+&lt;script src=&quot;https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 
--->
-&lt;div>
-&lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/flat-ui.min.css"/>
-&lt;/div>
-&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 -->
-&lt;div class="waifu" id="waifu">
-&lt;div class="waifu-tips" style="opacity: 1;">&lt;/div>
-&lt;canvas id="live2d" width="280" height="250" class="live2d">&lt;/canvas>
-&lt;div class="waifu-tool">
-&lt;span class="fui-home">&lt;/span>
-&lt;span class="fui-chat">&lt;/span>
-&lt;span class="fui-eye">&lt;/span>
-&lt;span class="fui-user">&lt;/span>
-&lt;span class="fui-photo">&lt;/span>
-&lt;span class="fui-info-circle">&lt;/span>
-&lt;span class="fui-cross">&lt;/span>
-&lt;/div>
-&lt;/div>
-&lt;script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/live2d.min.js">&lt;/script>
-&lt;script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu-tips.js">&lt;/script>
+--&gt;
+&lt;div&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/flat-ui.min.css&quot;/&gt;
+&lt;/div&gt;
+&lt;!--此也是看板娘的一部分不过 ui会强行改变 待改进 --&gt;
+&lt;div class=&quot;waifu&quot; id=&quot;waifu&quot;&gt;
+&lt;div class=&quot;waifu-tips&quot; style=&quot;opacity: 1;&quot;&gt;&lt;/div&gt;
+&lt;canvas id=&quot;live2d&quot; width=&quot;280&quot; height=&quot;250&quot; class=&quot;live2d&quot;&gt;&lt;/canvas&gt;
+&lt;div class=&quot;waifu-tool&quot;&gt;
+&lt;span class=&quot;fui-home&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-chat&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-eye&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-user&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-photo&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-info-circle&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fui-cross&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/live2d.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu-tips.js&quot;&gt;&lt;/script&gt;
 
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;initModel()&lt;/script&gt; 
+&lt;script type=&quot;text/javascript&quot;&gt;initModel()&lt;/script&gt; 
 </code></pre>
-<p></p></code></pre><p></p>
-<!-- /wp:code -->
-
-
 <p>第二步：找到  themes\geek\layout_partial\head.ejs 这个文件<br>在 之前加入</p>
-<!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;head>
-    &lt;!-- 看板娘 -->
-    &lt;div class="site-content-contain">
-        &lt;div id="content" class="site-content">
+<pre><code>&lt;head&gt;
+    &lt;!-- 看板娘 --&gt;
+    &lt;div class=&quot;site-content-contain&quot;&gt;
+        &lt;div id=&quot;content&quot; class=&quot;site-content&quot;&gt;
             
-                &lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/waifu.css"/>
-    &lt;script src="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/jquery.min.js">&lt;/script>
-&lt;!-- 看板娘 -->
+                &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/waifu.css&quot;/&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;!-- 看板娘 --&gt;
 
-&lt;/head></code></pre>
-<!-- /wp:code -->
-
-
+&lt;/head&gt;
+</code></pre>
 <h2>工具</h2>
 <li>记事本</li>
 <li>键盘</>
@@ -110,7 +103,7 @@
 <h2>技术</h2>
 </li><li>USB热插拔外接键盘硬盘管理视图化的快捷管理技术</li>
 
-</div></div>
+
     </div>
 
     
@@ -121,16 +114,32 @@
 	
 </div>
 
+
+
+
+
+<!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
 <!-- 代码语言 -->
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
 <!-- 代码块复制 -->
+
 <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+
+
 <!-- 代码块收缩 -->
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
 <!-- 代码块折行 -->
-<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/xuanbazhuanyongya.css">
 <!-- 看板娘 -->
@@ -156,16 +165,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/live2d.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu-tips.js"></script>
-<!-- 代码块高亮 -->
-<script type="text/javascript">
-var hljs_labels = {
-    left: "{{__('hljs.left')}}",
-    right: "{{__('hljs.right')}}",
-    copy: "{{__('hljs.copy')}}"
-}
-</script>
 
-<script src="https://cdn.jsdelivr.net/gh/Jamling/hexo-theme-nova@0.1.2/source/js/hljs.js"></script> <!-- 代码块高亮 -->
    
     <script type="text/javascript">initModel()</script>
     
