@@ -2,6 +2,17 @@
   text-decoration: line-through;
 }
 /* 删字符 */
+.heimu,
+.heimu a,
+a .heimu,
+.heimu a.new {
+  color: #252525;
+  text-shadow: none;
+}
+.heimu,
+.heimu rt {
+  background-color: #252525;
+}
 body {
   background-color: #3a3e4a;
   color: #d2d2d2;

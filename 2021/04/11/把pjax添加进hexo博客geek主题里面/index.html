@@ -9,7 +9,7 @@
 	
 	
 	<title>
-       玄八的记录挡案中心的免责声明   玄八的记录挡案中心
+       把pjax添加进hexo博客geek主题里面   玄八的记录挡案中心
 		 
     </title>
     
@@ -44,27 +44,56 @@
 	<a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
     <div class="post-title">
         <p>
-            玄八的记录挡案中心的免责声明
+            把pjax添加进hexo博客geek主题里面
         </p>
         <hr>
     </div>
     <div class="post-content">
-        <p>1、关 于 本 站</p>
-<p>（1） 本站为个人博客门户，作为个人的网络空间和技术家园，与朋友们共同探讨技术，切磋技艺，其服务是无偿的；本站不保证向用户提供的外部链接的准确性和完整性，该外部链接指向的不由本站实际控制的任何网页上的内容，本网站对其合法性亦概不负责，亦不承担任何法律责任，本站内所有内容亦不表明本网站之观点或意见。</p>
-<p>（2）本网站中的文章（包括转贴文章）的版权仅归原作者所有，若作者有版权声明的或文章从其它网站转载而附带有原所有站的版权声明者，其版权归属以附带声明为准；文章仅代表作者本人的观点， 与本网站立场无关；</p>
-<p>（3）任何单位或个人认为本站内容可能涉嫌侵犯其合法权益，应该及时向本站书面反馈，并提供身份证明、权属证明及详细情况证明，本站在收到上述文件后将会尽快移除相关内容。</p>
-<p>（4）由于与本网站链接的其它网站所造成之个人资料泄露及由此而导致的任何法律争议和后果，本网站均得免责。</p>
-<p>（5）由于用户将个人密码告知他人或与他人共享注册帐户，由此导致的任何个人资料泄露，本网站不负任何责任。</p>
-<p>（6）当政府司法机关依照法定程序要求本网站披露个人资料时，我们将根据执法单位之要求或为公共安全之目的提供个人资料。在此情 况下之任何披露，本网站均得免责。</p>
-<p>（7）凡以任何方式登陆本网站或直接、间接使用本网站资料者，视为自愿接受本网站声明的约束。</p>
-<p>2、网 站 运 行</p>
-<p>（1）本网站如因系统维护或升级而需暂停服务时，将事先公告。若因线路及非本站控制范围外的硬件故障或其它不可抗力而导致暂停服务， 于暂停服务期间造成的一切不便与损失， 本网站不负任何责任。</p>
-<p>（2）任何由于黑客攻击、计算机病毒侵入或发作、因政府管制而造成的暂时性关闭等影响网络正常经营的不可抗力而造成的个人资料泄露、丢失、被盗用或被窜改等，本网站均得免责。</p>
-<p>3、法 律 责 任</p>
-<p>（1）本网站使用者因为违反本声明的规定而触犯中华人民共和国法律的，一切后果自己负责，本网站不承担任何责任。</p>
-<p>（2）凡以任何方式登陆本网站或直接、间接使用本网站资料者，视为自愿接受本网站声明的约束。</p>
-<p>（3）本声明未涉及的问题参见国家有关法律法规，当本声明与国家 法律法规冲突时，以国家法律法规为准。</p>
+        <h1>前言:</h1>
+最近才发现博客打开有点慢可能是js反复加载的原因，我尝试把pjax初步的添加进了geek主题
+跟引用的有一部分小问题和目录位置不一样。耐心看完.
+<h1>用到的工具:</h1>
+<li>Notepad++</li>
+<h1>正题:</h1>
+<h4>第一步：添加pjax的ID</h4>
+geek主题位置:themes\geek\layout
+如下图所示  在 body id="bodyx"  <br>
+下面把你要 pjax的地方 后面结尾用 /div   <br>
+我这缓存了两个文件  一个文章一个底部(注：geek博客在footer文件加载了大量的js)<br>
+代码:
 
+<pre><code>&lt;div class =&quot;main&quot; id=&quot;pjax-container&quot;&gt; 
+&lt;/div&gt;
+</code></pre>
+<p><img src="/2021/04/11/%E6%8A%8Apjax%E6%B7%BB%E5%8A%A0%E8%BF%9Bhexo%E5%8D%9A%E5%AE%A2geek%E4%B8%BB%E9%A2%98%E9%87%8C%E9%9D%A2/1.png" alt="(2021年4月11日18:27:51)"></p>
+<h4>第二步：把pjax文件导入博客js存放处</h4>
+把jquery.pjax.min.js 放到 themes\geek\source\js处 （注：文件在下载地址往下拉在最下面）
+
+<p><img src="/2021/04/11/%E6%8A%8Apjax%E6%B7%BB%E5%8A%A0%E8%BF%9Bhexo%E5%8D%9A%E5%AE%A2geek%E4%B8%BB%E9%A2%98%E9%87%8C%E9%9D%A2/2.png" alt="(2021年4月11日18:27:51)"><br>然后自己随意命名新建个js存放刷新代码 我这里用了 xuanba.pjax.js<br><img src="/2021/04/11/%E6%8A%8Apjax%E6%B7%BB%E5%8A%A0%E8%BF%9Bhexo%E5%8D%9A%E5%AE%A2geek%E4%B8%BB%E9%A2%98%E9%87%8C%E9%9D%A2/4.png" alt="(2021年4月11日18:27:51)"><br>文件内容代码</p>
+<pre><code>$(document).pjax(‘a’，&#39;#pjax-container&#39;,&#123;
+        fragment: &#39;#pjax-container&#39;,
+        timeout: 5000,
+        cache: false
+&#125;);        
+</code></pre>
+<h4>第三步：在footer处引用pjax</h4>
+在<%- js('js js.js') %> 下面添加我们刚整理的js文件<br>
+代码: 第一条是需要jquery的支持 hexo geek里面好像自带了 我是一股脑添加了
+
+<pre><code>&lt;!-- 玄八添加的pjax --&gt;
+&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/jquery.pjax.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/xuanba.pjax.js&quot;&gt;&lt;/script&gt;
+&lt;!-- 玄八添加的pjax！ --&gt;
+</code></pre>
+<p><img src="/2021/04/11/%E6%8A%8Apjax%E6%B7%BB%E5%8A%A0%E8%BF%9Bhexo%E5%8D%9A%E5%AE%A2geek%E4%B8%BB%E9%A2%98%E9%87%8C%E9%9D%A2/3.png" alt="(2021年4月11日18:27:51)"></p>
+<h1>搞定收工：至于为什么要添加个自定义js 我试过把xuanba.pjax.js内容添加到js.js会导致评论系统出不来。事情就是这么个事情。</h1>  
+<h1>下载地址:<a target="_blank" rel="noopener" href="https://www.bootcdn.cn/jquery.pjax/">pjax</a> </h1>
+
+<h1>引用:</h1>
+<a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1619112907043974341&wfr=spider&for=pc">Hexo给materialX主题添加pjax支持</a>
+
+</%->
     </div>
 
 
