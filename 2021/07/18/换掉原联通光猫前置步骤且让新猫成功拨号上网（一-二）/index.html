@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	
+	
+	<title>
+       换掉原联通光猫前置步骤且让新猫成功拨号上网（一.二）   玄八的记录挡案中心
+		 
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+    <!-- 看板娘 -->
+	<div class="site-content-contain">
+		<div id="content" class="site-content">
+		    
+		        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/waifu.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/jquery.min.js"></script>
+<!-- 看板娘 -->
+
+
+<meta name="generator" content="Hexo 5.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body id="bodyx">
+<!-- 玄八添加的pjax -->
+	<div class ="main" id="pjax-container"> 
+<!-- 玄八添加的pjax! -->
+    <div class="hd posts">
+
+	<a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            换掉原联通光猫前置步骤且让新猫成功拨号上网（一.二）
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h1>前言</h1>
+    接 <a href="/2021/07/10/电信版改华为界面-补全shell/">hs8145v5光猫电信版改华为界面+补全shell(一)</a> 上文
+    上次的记录提到了换完了华为默认界面，这次是让它代替旧猫。废话不多说，开始正文。
+<h1>工具</h1>
+<li><span title="你知道的太多了" class="heimu"><s>Tftpd64</s></span></li>    
+<li><span title="你知道的太多了" class="heimu"><s>telnet</s></span></li> 
+<li><span title="你知道的太多了" class="heimu"><s>Notepad++ </s></span></li> 
+<li>华为配置加解密工具</li>
+<h1>正文</h1>
+    <h3>第一步:获取新光猫认证所需信息</h3>    
+方法1:获取设备型号百度搜索默认光猫超密
+方法2:telnet 192.168.1.1 (光猫地址) 并且 百度搜索型号光猫的telnet默认密码 （我是成功了,其他密码不对的我也暂时没办法-_-,等我遇到道墙,再去想办法解决.我目前没遇到。）
+我百度搜来的F607ZA telnet root Zte521
+登陆进去后输入 sendcmd 1 DB p DevAuthInfo 
+或者            sendcmd 1DB pUserInfo 
+
+<p>就会如下图所示 获得  CUAdmin  cuadmin28ff*e 光猫超密 如下图所示</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.1.png" alt="(2021年7月18日19:30:49)"></p>
+<p>接下来就是访问 <a target="_blank" rel="noopener" href="http://192.168.1.1/cu.html">http://192.168.1.1/cu.html</a> 直接刚拿到的超密</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.2.png" alt="(2021年7月18日19:30:49)"></p>
+<p>成功进来了 </p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.4.png" alt="(2021年7月18日19:30:49)"></p>
+<p>首先获取新光猫认证所需信息第一个 LOID 所谓的逻辑吗<br>LOID:204008431*</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.5.png" alt="(2021年7月18日19:30:49)"></p>
+<p>第二个 设备标识号：28FF*E-ZTERQDXH2P18503</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.6.png" alt="(2021年7月18日19:30:49)"></p>
+<p>第三个 上网VLANID：41</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.7.png" alt="(2021年7月18日19:30:49)"></p>
+<p>第四个 原光猫MAC:*8:FF:3E:FA:0E:1E</p>
+<p>好了4个重要的已经拿到手我们来清点下<br>LOID:204008431*<br>设备标识号：28FF*E-ZTERQDXH2P18503<br>上网VLANID：41<br>原光猫MAC:*8:FF:3E:FA:0E:1E<br>重要的是LOID和上网VLANID号，其他的只是备用方案.现在已经很少绑定MAC和网络标识了</p>
+<h3>第二步：修改新光猫匹配旧光猫配置</h3>
+现在用我们的新工具:Tftpd64
+打开它查看我们是否成功通过该网卡连接到了光猫 我这里是192.168.1.2 是对的
+
+<p>现在又回到了 hs8145v5<br>先来telnet 192.168.1.1 (光猫地址)<br>账号:root<br>密码:adminHW<br>su  回车<br>shell 回车<br>cd /mnt/jffs2  回车<br>tftp -p -l hw_boardinfo.bak 192.168.1.2  备份华为HS8145V5光猫 MAC 网络标识修改文件<br>按照上面依次输入  就会如下图所示  </p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.png" alt="(2021年7月18日19:30:49)"></p>
+<p>Tftpd64 100%<br>代码运行成功后会在 Tftpd64目录下有 hw_boardinfo.bak的一个文件<br><span title="你知道的太多了" class="heimu"><s><br>/**说明：<br>hw_boardinfo：同下，光猫修改设置时这两个文件会同时操作。<br>hw_boardinfo.bak：文件内像乱码的加密字段都可以删除，相当于恢复出厂设置部分数据，多为运营商参数。<br>**<br>/<br></s></span><br>用 Notepad++ 打开它  详细说明看下面</p>
+<pre><code>obj.id = &quot;0x00000001&quot; ; obj.value = &quot;1&quot;;（1为GP。2、EP。4为双模 HS8145V5 不能改 改了反复重启 还好及时改回来了）
+obj.id = &quot;0x00000002&quot; ; obj.value = &quot;485754439ED548A0&quot;;   (标签上的PON NO)
+
+obj.id = &quot;0x00000007&quot; ; obj.value = &quot;025FYRHYKC015833&quot;; （此处不用改）
+obj.id = &quot;0x00000008&quot; ; obj.value = &quot;2150083656HYKC512665&quot;; （标签上的PROD ID）
+
+obj.id = &quot;0x00000019&quot; ; obj.value = &quot;3B822BCB0E70A6B25&quot;; (改为老猫的后十七位 网络标识)
+
+obj.id = &quot;0x0000000a&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:25&quot;; (改为老猫的MAC地址) 重要 MAC只可改前11位 往下全都要换
+obj.id = &quot;0x0000000b&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:2C&quot;;  
+obj.id = &quot;0x00000022&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:2D&quot;;
+obj.id = &quot;0x00000023&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:2E&quot;;
+obj.id = &quot;0x00000024&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:2F&quot;;
+obj.id = &quot;0x0000002d&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:30&quot;;
+obj.id = &quot;0x0000002e&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:31&quot;;
+obj.id = &quot;0x0000002f&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:32&quot;;
+obj.id = &quot;0x00000030&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:33&quot;;
+obj.id = &quot;0x0000000c&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:26&quot;;
+obj.id = &quot;0x0000000d&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:27&quot;;
+obj.id = &quot;0x0000000e&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:28&quot;;
+obj.id = &quot;0x0000000f&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:29&quot;;
+obj.id = &quot;0x00000010&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:2A&quot;;
+obj.id = &quot;0x00000011&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:2B&quot;;
+obj.id = &quot;0x00000012&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:34&quot;;
+obj.id = &quot;0x00000013&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:35&quot;;
+obj.id = &quot;0x00000025&quot; ; obj.value = &quot;BC:B0:E7:0A:6B:25&quot;;  （最后一位 是数值 不能改）
+</code></pre>
+<p>这里需要改的地方有两个 一个一小段 一个一大段<br>设备标识号：28FF*E-ZTERQDXH2P18503 后十七位改上<br>obj.id = “0x00000019” ; obj.value = “3B822BCB0E70A6B25”; (改为老猫的后十七位 网络标识)</p>
+<p>原光猫MAC:*8:FF:3E:FA:0E:1E  下面这一大段都要改,第一排全改成原光猫的MAC,从第二排开始保留最后一位</p>
+<p>obj.id = “0x0000000a” ; obj.value = “BC:B0:E7:0A:6B:25”; (改为老猫的MAC地址) 重要 MAC只可改前11位 往下全都要换<br>obj.id = “0x0000000b” ; obj.value = “BC:B0:E7:0A:6B:2C”;<br>obj.id = “0x00000022” ; obj.value = “BC:B0:E7:0A:6B:2D”;<br>obj.id = “0x00000023” ; obj.value = “BC:B0:E7:0A:6B:2E”;<br>obj.id = “0x00000024” ; obj.value = “BC:B0:E7:0A:6B:2F”;<br>obj.id = “0x0000002d” ; obj.value = “BC:B0:E7:0A:6B:30”;<br>obj.id = “0x0000002e” ; obj.value = “BC:B0:E7:0A:6B:31”;<br>obj.id = “0x0000002f” ; obj.value = “BC:B0:E7:0A:6B:32”;<br>obj.id = “0x00000030” ; obj.value = “BC:B0:E7:0A:6B:33”;<br>obj.id = “0x0000000c” ; obj.value = “BC:B0:E7:0A:6B:26”;<br>obj.id = “0x0000000d” ; obj.value = “BC:B0:E7:0A:6B:27”;<br>obj.id = “0x0000000e” ; obj.value = “BC:B0:E7:0A:6B:28”;<br>obj.id = “0x0000000f” ; obj.value = “BC:B0:E7:0A:6B:29”;<br>obj.id = “0x00000010” ; obj.value = “BC:B0:E7:0A:6B:2A”;<br>obj.id = “0x00000011” ; obj.value = “BC:B0:E7:0A:6B:2B”;<br>obj.id = “0x00000012” ; obj.value = “BC:B0:E7:0A:6B:34”;<br>obj.id = “0x00000013” ; obj.value = “BC:B0:E7:0A:6B:35”;<br>obj.id = “0x00000025” ; obj.value = “BC:B0:E7:0A:6B:25”;  （最后一位 是数值 不能改）</p>
+<p>修改完成后保存后<br>在telnet 敲入 tftp -g -r hw_boardinfo.bak 192.168.1.2  上传修改好的文件<br>上传提示100%后 重启光猫<br>本来应该到这里就该到第三步的.由于我是在海鲜市场淘回来的商家说不提供技术服务 光猫背后只有 useradmin的密码 telecomadmin 超密不对 继续进来</p>
+<p>先来telnet 192.168.1.1 (光猫地址)<br>账号:root<br>密码:adminHW<br>su  回车<br>shell 回车<br>cd /mnt/jffs2  回车</p>
+<p>tftp -p -l hw_ctree.xml 192.168.1.2 </p>
+<p>然后 打开华为配置加解密工具 把下下来的文件拖进去 解密</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.113.png" alt="(2021年7月18日19:30:49)"><br>在 Tftpd64 用 Notepad++打开 hw_ctree.xml 搜索telecomadmin 如下图所示</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.11.png" alt="(2021年7月18日19:30:49)"></p>
+<p>我们直接用简单的办法 既然已知useradmin密码正确 我们直接把useradmin替换掉 salt 密钥也得替换 不然计算出来的密码不一样 就和useradmin对不上了</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.12.png" alt="(2021年7月18日19:30:49)"></p>
+<p>如上图所示 简单方便 不用跑算法 哼哼哼~ 接下来再打开华为接加密工具,再给他加密回去然后上传<br>tftp -g -r hw_ctree.xml 192.168.1.2<br>上传完成后 重启新光猫</p>
+<p>接下来吧 光纤移到 新光猫</p>
+<p>用useradmin 密码 登陆 telecomadmin  用户<br>进来后把上网VLANID给配置下 HS8145V5 WAN配置里面,照着旧光猫填上去如下图所示</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.13.png" alt="(2021年7月18日19:30:49)"></p>
+<p>我这里已经添加好了 接下来去LOID 输入我们所收集的信息</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.14.png" alt="(2021年7月18日19:30:49)"></p>
+<p>接下来到业务开通状态只要OLT业务配置成功 其他什么的IEMS不用管都可以拨号上网了</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.15.png" alt="(2021年7月18日19:30:49)"></p>
+<p>也就是跑进程30% 我这里就不演示了 我在挂着冒险岛 怕掉线</p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.16.png" alt="(2021年7月18日19:30:49)"><br>这个跑狗进度条都到80%了 跑了几次都没给我叠1.5倍经验。出BUG了？那我花大价钱买的椅子不是白花了！可恶啊！！！！<br>咳咳咳,好像说到奇怪的地方去了。</p>
+<h3>第三步:直连电脑拨号上网成功加100M宽带测速</h3>
+
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.8.png" alt="(2021年7月18日19:30:49)"></p>
+<p><img src="/2021/07/18/%E6%8D%A2%E6%8E%89%E5%8E%9F%E8%81%94%E9%80%9A%E5%85%89%E7%8C%AB%E5%89%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4%E4%B8%94%E8%AE%A9%E6%96%B0%E7%8C%AB%E6%88%90%E5%8A%9F%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%EF%BC%88%E4%B8%80-%E4%BA%8C%EF%BC%89/1.9.png" alt="(2021年7月18日19:30:49)"></p>
+<h1>结语</h1>
+道路千万条,备份第一条。刷机成了砖，那与我无关。(玄八语录)
+
+
+    </div>
+
+
+      <!-- 要添加的内容 -->
+      
+	  <hr class="fhr">
+	  <b>本文作者： 只是玄八的随意记录</b>
+<br><b>本文链接： </b>  <script> document.write(window.location.href);  </script>
+<br><b> 版权声明： </b> 本博客所有文章除特别声明外，均采用  <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 </a> 许可协议。转载请注明出处！
+
+      
+      <!---->
+
+
+
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+	
+
+	
+</div>
+
+
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/xuanbazhuanyongya.css">
+<!-- 玄八添加的看板娘 -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu.css"/>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!--此也是看板娘的一部分不过 ui会强行改变 待改进 
+ <div>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/flat-ui.min.css"/>
+    </div>
+    <!--此也是看板娘的一部分不过 ui会强行改变 待改进 -->
+    <div class="waifu" id="waifu">
+        <div class="waifu-tips" style="opacity: 1;"></div>
+        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/live2d.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/live2d0/waifu-tips.js"></script>
+
+   
+    <script type="text/javascript">initModel()</script>
+    
+    <!-- 玄八添加的看板娘！ -->
+
+
+
+<div class="footer" id="footer">
+    <p>Copyright © 2021 <a class="flink" target="_blank" rel="noopener" href="https://blog.dajlc.com">玄八的记录挡案中心</a>· 休息区 <a class="flink" target="_blank" rel="noopener" href="https://www.sjiaw.com/jing.html">点击</a>.
+ <br>
+        Made with <i class="fa fa-heart throb"
+           style="color:#d43f57"></i> by <span class="author"
+              itemprop="copyrightHolder">blog.dajlc.com</span>.
+
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="9dSruQsoNevycwyURjKpLFUI-MdYXbMMI">
+<input type="hidden" id="valine_appKey" value="I4kdevJIl8lAr4ngCCyG2Lmh">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+
+
+<!-- 玄八添加的pjax -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
+<script src="js/jquery.pjax.min.js"></script>
+<script src="js/xuanba.pjax.js"></script>
+<!-- 玄八添加的pjax！ -->
+
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+	</div>
+</body>
+
+<head>
+    <!-- 玄八添加的看板娘 -->
+	<div class="site-content-contain">
+		<div id="content" class="site-content">
+		    
+		        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/waifu.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/LonelyFinally/sjiaw@1.0/jquery.min.js"></script>
+<!-- 玄八添加的看板娘! -->
+
+</head>
+
+</html>
