@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <p style="text-align: center;"><img src="https://cdn.jsdelivr.net/gh/LonelyFinally/cdn/tian.png"alt="">
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+  <meta name="apple-mobile-web-app-title" content="CodePen">
+
+
+
+
+
+  
+  <title>笨蛋瑞欢迎</title>
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<h5 align="center"><font size="80"color="＃00FF00"> 欢迎使用笨蛋瑞网络!</font></h2>
+<br><br><br>
+  <div class="container">
+                <div class="form">
+                    
+					<body onLoad="show()">
+
+        <h5 align="center"><font size="80"color="＃00FF00"> <div id="txt"></div></font></h2>
+        <script language="javascript">
+            content = "正在加载监控网络程式········OK！";
+            i = 0;
+ 
+            function show() {
+                str = content.substr(0, i);
+                txt.innerHTML = str + "｜";
+                i++;
+                
+                setTimeout("show()", 200);
+            }
+        </script>
+
+    </body>
+
+  
+<style>
+body {
+	background: #000;
+}
+
+canvas {
+	background: #181818;
+	box-shadow: 0 0 0 1px #282828;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+  
+      <script id="rendered-js" >
+var canvas = document.createElement('canvas'),
+ctx = canvas.getContext('2d'),
+width = 400,
+height = 100,
+loaded = 0,
+loaderSpeed = 0.6,
+loaderWidth = 310,
+loaderHeight = 16,
+loaderX = width / 2 - loaderWidth / 2,
+loaderY = height / 2 - loaderHeight / 2,
+particles = [],
+particleLift = 180,
+particleRate = 4,
+hueStart = 0,
+hueEnd = 120,
+hue = 0,
+gravity = 0.12,
+dpr = window.devicePixelRatio;
+
+document.body.appendChild(canvas);
+canvas.width = width;
+canvas.height = height;
+canvas.style.width = width / dpr + 'px';
+canvas.style.height = height / dpr + 'px';
+ctx.globalCompositeOperation = 'lighter';
+
+function rand(rMi, rMa) {
+  return ~~(Math.random() * (rMa - rMi + 1) + rMi);
+}
+
+function updateLoader() {
+  if (loaded < 100) {
+    loaded += loaderSpeed;
+  } else {
+    //loaded = 0;
+	//window.location.href="tian5.html?backurl="+window.location.href;
+	setTimeout("javascript:location.href='tian5.html'", 3000); 
+  }
+}
+
+function renderLoader() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(loaderX, loaderY, loaderWidth, loaderHeight);
+
+  hue = hueStart + loaded / 100 * (hueEnd - hueStart);
+
+  var newWidth = loaded / 100 * loaderWidth;
+  ctx.fillStyle = 'hsla(' + hue + ', 100%, 40%, 1)';
+  ctx.fillRect(loaderX, loaderY, newWidth, loaderHeight);
+
+  ctx.fillStyle = '#444';
+  ctx.fillRect(loaderX, loaderY, newWidth, loaderHeight / 2);
+}
+
+function Particle() {
+  this.x = loaderX + loaded / 100 * loaderWidth - rand(0, 1);
+  this.y = height / 2 + rand(0, loaderHeight) - loaderHeight / 2;
+  this.vx = (rand(0, 4) - 2) / 100;
+  this.vy = (rand(0, particleLift) - particleLift * 2) / 100;
+  this.width = rand(1, 4) / 2;
+  this.height = rand(1, 4) / 2;
+  this.hue = hue;
+}
+
+Particle.prototype.update = function (i) {
+  this.vx += (rand(0, 6) - 3) / 100;
+  this.vy += gravity;
+  this.x += this.vx;
+  this.y += this.vy;
+
+  if (this.y > height) {
+    particles.splice(i, 1);
+  }
+};
+
+Particle.prototype.render = function () {
+  ctx.fillStyle = 'hsla(' + this.hue + ', 100%, ' + rand(50, 70) + '%, ' + rand(20, 100) / 100 + ')';
+  ctx.fillRect(this.x, this.y, this.width, this.height);
+};
+
+function createParticles() {
+  var i = particleRate;
+  while (i--) {
+    this.particles.push(new Particle());
+  }
+}
+
+function updateParticles() {
+  var i = particles.length;
+  while (i--) {
+    var p = particles[i];
+    p.update(i);
+  };
+}
+
+function renderParticles() {
+  var i = particles.length;
+  while (i--) {
+    var p = particles[i];
+    p.render();
+  }
+}
+
+function clearCanvas() {
+  ctx.clearRect(0, 0, width, height);
+}
+
+
+function loop() {
+  requestAnimationFrame(loop);
+  clearCanvas();
+  createParticles();
+  updateLoader();
+  updateParticles();
+  renderLoader();
+  renderParticles();
+}
+
+loop();
+//# sourceURL=pen.js
+
+    </script>
+
+
+
+</body>
+
+</html>
+ 
